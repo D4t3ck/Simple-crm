@@ -1,4 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+$mainColor: #3c55bb;
+$mainFontColor: #f5f5f5;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@mixin flexbox($fd: row, $jc: center, $ai: center, $g: 0px) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  gap: $g;
+}
+
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin coverBackground($s: cover, $p: center) {
+  background-repeat: no-repeat;
+  background-size: $s;
+  background-position: $p;
+}
+
+@mixin randomBorder($width: 2px) {
+  $red: random(255);
+  $green: random(255);
+  $blue: random(255);
+  border: $width dashed rgb($red, $green, $blue);
+}
+
+@mixin curserPointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

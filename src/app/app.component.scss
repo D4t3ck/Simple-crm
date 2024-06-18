@@ -1,0 +1,17 @@
+@import "../styles.scss";
+
+.mat_drawer_container {
+  height: 100vh;
+  background-color: rgb(250, 250, 250);
+}
+
+.mat_toolbar {
+  font-size: 1.2rem;
+  color: $mainFontColor;
+  background-color: $mainColor;
+
+  .mat_icon {
+    @include curserPointer;
+    color: $mainFontColor;
+  }
+}
