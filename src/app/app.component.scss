@@ -23,13 +23,13 @@
       height: 2.5rem;
       padding-inline: 1rem;
 
-      mat-icon{
+      mat-icon {
         margin-right: 1rem;
       }
 
       &:hover {
         cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.04);
       }
     }
   }
@@ -46,4 +46,8 @@
     @include curserPointer;
     color: $mainFontColor;
   }
+}
+
+.router_container {
+  padding: 1rem 0 0 3.5rem;
 }
