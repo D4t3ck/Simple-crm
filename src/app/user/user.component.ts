@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { User } from '../../models/user.class';
 
 
 @Component({
@@ -14,6 +15,9 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
   styleUrl: './user.component.scss',
 })
 export class UserComponent {
+
+  user: User = new User();
+  
   
   constructor(public dialog: MatDialog) {}
 
