@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +14,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  firestore: Firestore = inject(Firestore);
   title = 'simple-crm';
+  items$: Observable<any[]>;
+
+  constructor() {
+    const aCollection = collection(this.firestore, 'items');
+    this.items$ = collectionData(aCollection);
+  }
 }
