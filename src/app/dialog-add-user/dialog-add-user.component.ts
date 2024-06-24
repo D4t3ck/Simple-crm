@@ -1,5 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { MatDialogActions, MatDialogContent } from '@angular/material/dialog';
+import {
+  MatDialogActions,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogClose,
+} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -26,6 +31,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatDatepickerModule,
     FormsModule,
     MatProgressBarModule,
+    MatDialogClose,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-add-user.component.html',
@@ -39,7 +45,7 @@ export class DialogAddUserComponent {
   firestore: Firestore = inject(Firestore);
   items$: Observable<any>;
 
-  constructor() {
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
     const aCollection = collection(this.firestore, 'items');
     this.items$ = collectionData(aCollection);
   }
@@ -54,6 +60,7 @@ export class DialogAddUserComponent {
       const result = await addDoc(usersCollection, this.user.toJSON());
       this.loading = false;
       console.log('Adding user finished', result);
+      this.dialogRef.close();
     } catch (error) {
       console.error('Error adding user:', error);
     }
