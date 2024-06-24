@@ -1,4 +1,7 @@
 $mainColor: #3c55bb;
+$btnColor: #2a3647;
+$btnColorLight: #29abe2;
+$formularWhite: #fdfbff;
 $mainFontColor: #f5f5f5;
 
 @mixin flexbox($fd: row, $jc: center, $ai: center, $g: 0px) {
@@ -37,7 +40,7 @@ $mainFontColor: #f5f5f5;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* user-select: none; */
+  user-select: none;
 }
 
 html,
@@ -55,4 +58,40 @@ body {
 
 .full_width {
   width: 100%;
+}
+
+.btn_full {
+  width: 6rem;
+  height: 2rem;
+  border: unset;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $mainFontColor;
+  background-color: $btnColor;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $btnColorLight;
+    box-shadow: -1px 5px 5px 0px #c2c2c2;
+  }
+}
+
+.btn_clear {
+  width: 6rem;
+  height: 2rem;
+  border: unset;
+  border: 1px solid $btnColor;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $btnColor;
+  background-color: $formularWhite;
+
+  &:hover {
+    cursor: pointer;
+    color: $btnColorLight;
+    border-color: $btnColorLight;
+    box-shadow: -1px 5px 5px 0px #c2c2c2;
+  }
 }

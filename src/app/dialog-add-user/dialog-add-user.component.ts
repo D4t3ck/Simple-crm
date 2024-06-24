@@ -13,6 +13,7 @@ import {
   addDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -24,6 +25,7 @@ import { Observable } from 'rxjs';
     MatFormFieldModule,
     MatDatepickerModule,
     FormsModule,
+    MatProgressBarModule,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-add-user.component.html',
@@ -32,6 +34,7 @@ import { Observable } from 'rxjs';
 export class DialogAddUserComponent {
   user: User = new User();
   birthDate: Date | any;
+  loading: false | any;
 
   firestore: Firestore = inject(Firestore);
   items$: Observable<any>;
@@ -42,12 +45,14 @@ export class DialogAddUserComponent {
   }
 
   async saveUser() {
+    this.loading = true;
     this.user.birthDate = this.birthDate.getTime();
     console.log('Current user is:', this.user);
 
     try {
       const usersCollection = collection(this.firestore, 'users');
       const result = await addDoc(usersCollection, this.user.toJSON());
+      this.loading = false;
       console.log('Adding user finished', result);
     } catch (error) {
       console.error('Error adding user:', error);

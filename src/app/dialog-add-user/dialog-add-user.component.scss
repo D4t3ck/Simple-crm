@@ -1,0 +1,23 @@
+@import "../../styles.scss";
+
+.dialog_container {
+  position: relative;
+}
+
+h2 {
+  margin: 0;
+  padding: 0.5rem 1.5rem 0;
+  color: $btnColor;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.btn_Container {
+  margin-bottom: 1rem;
+  padding: 0 24px;
+
+  div {
+    margin-right: auto;
+    padding: 1px 6px;
+  }
+}
