@@ -19,6 +19,7 @@ import {
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -32,6 +33,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FormsModule,
     MatProgressBarModule,
     MatDialogClose,
+    MatCardModule,
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './dialog-add-user.component.html',
