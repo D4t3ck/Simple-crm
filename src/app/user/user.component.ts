@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
@@ -38,11 +40,12 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     const usersCollection = collection(this.firestore, 'users');
-    collectionData(usersCollection).subscribe((changes: any) => {
+    collectionData(usersCollection, { idField: 'id' }).subscribe((changes: any) => {
       console.log('Received changes from DB', changes);
       this.allUsers = changes;
     });
   }
+  
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
