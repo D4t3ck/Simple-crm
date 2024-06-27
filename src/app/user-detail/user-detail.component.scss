@@ -1,0 +1,27 @@
+@import "../../styles.scss";
+
+.user_detail_header {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 250px;
+  color: white;
+  background-color: $btnColor;
+
+  .user_details {
+    @include randomBorder;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 0 1rem 1rem;
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 100%;
+    }
+
+    p {
+      margin-left: 1rem;
+    }
+  }
+}
