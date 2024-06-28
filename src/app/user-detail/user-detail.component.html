@@ -2,18 +2,20 @@
   <div class="user_details">
     <img src="/img/user.png" alt="User Picture" />
     <p>
-      Max Mustermann <br />
-      email&#64;email.com
+      {{ user.firstName }} {{ user.lastName }} <br />
+      {{ user.email }}
     </p>
   </div>
 </mat-card>
 
 <mat-card class="adress_card mt_32">
-  <mat-card-header>
-    <mat-card-title>Address</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    Musterstr. 23 <br>
-    12345 Musterstadt
-  </mat-card-content>
+  <div>
+    <mat-card-header>
+      <mat-card-title>Address:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{ user.street }} <br />
+      {{ user.zipCode }} {{ user.city }}
+    </mat-card-content>
+  </div>
 </mat-card>

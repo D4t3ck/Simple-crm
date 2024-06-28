@@ -13,11 +13,23 @@ h2 {
 }
 
 .btn_Container {
+  display: flex;
+  gap: 1rem;
   margin-bottom: 1rem;
   padding: 0 24px;
 
   div {
     margin-right: auto;
     padding: 1px 6px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .btn_Container {
+    justify-content: center;
+
+    div {
+      margin-right: 0;
+    }
   }
 }

@@ -52,6 +52,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.df {
+  display: flex;
+}
+
 .mr_16 {
   margin-right: 1rem;
 }
@@ -61,7 +65,7 @@ body {
 }
 
 .full_width {
-  width: 100% !important;
+  width: 100%;
 }
 
 .btn_full {

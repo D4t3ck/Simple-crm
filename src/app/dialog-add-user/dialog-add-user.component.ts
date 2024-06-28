@@ -41,7 +41,7 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class DialogAddUserComponent {
   user: User = new User();
-  birthDate: Date | any;
+  birthDate!: Date;
   loading: false | any;
 
   firestore: Firestore = inject(Firestore);
@@ -55,13 +55,13 @@ export class DialogAddUserComponent {
   async saveUser() {
     this.loading = true;
     this.user.birthDate = this.birthDate.getTime();
-    console.log('Current user is:', this.user);
+    /* console.log('Current user is:', this.user); */
 
     try {
       const usersCollection = collection(this.firestore, 'users');
       const result = await addDoc(usersCollection, this.user.toJSON());
       this.loading = false;
-      console.log('Adding user finished', result);
+      /* console.log('Adding user finished', result); */
       this.dialogRef.close();
     } catch (error) {
       console.error('Error adding user:', error);
