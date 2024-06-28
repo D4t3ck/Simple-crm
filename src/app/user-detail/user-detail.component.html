@@ -9,13 +9,14 @@
 </mat-card>
 
 <mat-card class="adress_card mt_32">
-  <div>
-    <mat-card-header>
-      <mat-card-title>Address:</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      {{ user.street }} <br />
-      {{ user.zipCode }} {{ user.city }}
-    </mat-card-content>
-  </div>
+  <button class="menu_btn" (click)="openAdressDialog()">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-card-header>
+    <mat-card-title>Address:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    {{ user.street }} <br />
+    {{ user.zipCode }} {{ user.city }}
+  </mat-card-content>
 </mat-card>
