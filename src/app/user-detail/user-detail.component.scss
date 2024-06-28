@@ -6,7 +6,17 @@
   min-height: 250px;
   color: white;
   background-color: $btnColor;
-  border-radius: 2rem 2rem 0 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+
+  .user_menu_btn {
+    @include curserPointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: unset;
+    color: $formularWhite;
+    background-color: transparent;
+  }
 
   .user_details {
     display: flex;
@@ -31,12 +41,12 @@
   gap: 1rem;
   border-radius: 0;
 
-  .menu_btn {
+  .address_menu_btn {
     @include curserPointer;
     position: absolute;
     top: 10px;
     right: 10px;
     border: unset;
-    background-color: $formularWhite;
+    background-color: transparent;
   }
 }
